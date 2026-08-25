@@ -8,6 +8,12 @@ The central separation is:
 
 > Agents decide. Contracts define meaning. Hosts execute closed work.
 
+The practical rule is equally small: use the main Agent for unresolved intent
+and judgment; put deterministic or mechanically checkable work in provider
+code; describe reusable meaning with typed contracts; and let the host execute
+already-closed calls without another model relay. A small model may implement a
+provider when judgment remains, but it does not become the Capability identity.
+
 ```text
 Natural-language intent                         Already structured input
           |                                               |
@@ -76,8 +82,12 @@ See [Repository map](docs/REPOSITORIES.md) for the current public set.
 3. Use [Adoption](docs/ADOPTION.md) to add only the layers a real task needs.
 4. Read [Claims and verification](docs/CLAIMS_AND_VERIFICATION.md) before making
    a correctness, portability, performance, or value claim.
-5. Read [Related work](docs/PRIOR_ART.md) for overlap and non-overlap with MCP,
-   MCP infrastructure, workflow specifications, and durable orchestration.
+5. Use the [Interoperability map](docs/INTEROPERABILITY.md) to place MCP, A2A,
+   OASF, Agent SDKs, workflow engines, and small models without collapsing their
+   responsibilities.
+6. Run the [public Math Anchor demo](https://github.com/tetracoralla/direct-execution-runtime/blob/main/docs/PUBLIC_DEMO.md)
+   for a real zero-model execution-stage walkthrough.
+7. Read [Related work](docs/PRIOR_ART.md) for current overlap and non-overlap.
 
 ## Current status
 

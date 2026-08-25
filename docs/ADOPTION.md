@@ -52,6 +52,30 @@ At minimum report:
 
 A green check in one lane does not close the others.
 
+## Small models belong behind a provider contract
+
+Use a smaller model when the operation still needs bounded interpretation or
+classification that deterministic code cannot supply. Keep the Capability
+identity stable across implementation changes, and expose uncertainty, limits,
+and stable failure semantics in the provider result. Model name, prompt,
+temperature, hosting, and price remain provider binding or diagnostic facts.
+
+Do not send settled deterministic work to a small model merely to make the
+architecture look uniformly AI-based. The cheapest correct implementation may
+be code, a mature library, a standards database, a rules engine, or a model.
+
+## Add a second provider only for a real substitution need
+
+One real provider can seed an experimental Profile. Add an independent second
+provider when a current caller needs failover, vendor choice, independent
+verification, or portable behavior across engines. Prefer a thin adapter over
+an existing mature engine or provider; do not build a second complete product
+only to obtain a higher conformance label.
+
+Until the same Profile has current differential coverage across independent
+providers, describe each provider's conformance separately and leave
+substitution unestablished.
+
 ## Minimal adoption
 
 A project may use only a provider-native typed tool and the harness rules. It
