@@ -27,6 +27,9 @@ Check that:
    collapsed into an unqualified evidence claim.
 6. Related work is described from current primary sources without novelty or
    universal superiority claims.
+7. The interoperability map distinguishes implemented carriers from mapping
+   guidance and does not turn discovery metadata or framework fit into a
+   compatibility or conformance claim.
 
 ## Executable lanes
 

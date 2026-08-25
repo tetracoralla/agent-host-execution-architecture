@@ -23,6 +23,7 @@ REQUIRED = {
     "docs/ADOPTION.md",
     "docs/ARCHITECTURE.md",
     "docs/CLAIMS_AND_VERIFICATION.md",
+    "docs/INTEROPERABILITY.md",
     "docs/LAYERS.md",
     "docs/PRIOR_ART.md",
     "docs/PRODUCT_MODEL.md",
