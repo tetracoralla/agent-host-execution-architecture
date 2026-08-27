@@ -1,0 +1,91 @@
+{
+  "schemaVersion": "openadam.architecture-contract-set.v0.1",
+  "id": "org.openadam.agent-host-execution.experimental",
+  "version": "0.2.0",
+  "lifecycle": "experimental",
+  "publication": {
+    "status": "draft-unbound",
+    "description": "Document versions and file digests are current working-tree coordinates. Immutable repository revisions and a release tag are not yet authorized."
+  },
+  "repositories": [
+    {
+      "id": "capability-contracts",
+      "url": "https://github.com/tetracoralla/capability-contracts",
+      "documents": [
+        {
+          "schemaVersion": "openadam.capability-profile.v0.3",
+          "file": "schemas/capability-profile.schema.v0.3.json",
+          "fileSha256": "a283654779ef20164f066181e78fd7a3c2fe9e1ece44668aa82db2eac457366d"
+        },
+        {
+          "schemaVersion": "openadam.provider-manifest.v0.3",
+          "file": "schemas/provider-manifest.schema.v0.3.json",
+          "fileSha256": "96b1f267ef4945767a810bc2f40017076422e6334c1bfc96d8b843abe2118d2a"
+        },
+        {
+          "schemaVersion": "openadam.conformance-suite.v0.2",
+          "file": "schemas/conformance-suite.schema.v0.2.json",
+          "fileSha256": "9114b2119b8e5f5d858708d594c1c6c7fdcb45a6a0e21ac1ff19573621c2ba7c"
+        },
+        {
+          "schemaVersion": "openadam.capability-jsonl-envelope.v0.1",
+          "file": "schemas/capability-jsonl-envelope.schema.v0.1.json",
+          "fileSha256": "1319859f00e766eb60fb0fc9daef2a7deb92f32376569253b5a70bd9b3bcdcb1"
+        }
+      ],
+      "protocols": ["openadam.capability-jsonl.v0.1"]
+    },
+    {
+      "id": "procedure-contracts",
+      "url": "https://github.com/tetracoralla/procedure-contracts",
+      "documents": [
+        {
+          "schemaVersion": "openadam.procedure-profile.v0.5",
+          "file": "schemas/procedure-profile.schema.v0.5.json",
+          "fileSha256": "aee7d90cc7c35beb1146e6dbb18d236efac277122e16c21e5ea7d2637419896f"
+        },
+        {
+          "schemaVersion": "openadam.procedure-implementation-manifest.v0.5",
+          "file": "schemas/procedure-implementation-manifest.schema.v0.5.json",
+          "fileSha256": "7697ef35dd81f7f0fd6bdbb0a960606336e06d4bae1be7c559bb9f33332ecddd"
+        },
+        {
+          "schemaVersion": "openadam.procedure-conformance-suite.v0.4",
+          "file": "schemas/procedure-conformance-suite.schema.v0.4.json",
+          "fileSha256": "84a9a340052143c7adfb662bf9ae8a1fd3a8b2c4da21953214eb56ea0d09632b"
+        },
+        {
+          "schemaVersion": "openadam.procedure-composition-suite.v0.2",
+          "file": "schemas/procedure-composition-suite.schema.v0.2.json",
+          "fileSha256": "995c433c24ea47a479005e3bf95c4b25579868525a385f2eeaddd5af3304c7b6"
+        }
+      ],
+      "protocols": ["openadam.procedure-jsonl.v0.2"]
+    },
+    {
+      "id": "direct-execution-runtime",
+      "url": "https://github.com/tetracoralla/direct-execution-runtime",
+      "documents": [
+        {
+          "schemaVersion": "openadam.direct-provider-config.v0.2",
+          "file": "schemas/provider-config.schema.json",
+          "fileSha256": "4c40e4c898fc6822510a9b693bbda4f324352a3bd69a93fcb0a8c680d663a67b"
+        },
+        {
+          "schemaVersion": "openadam.direct-work-order.v0.1",
+          "file": "schemas/work-order.schema.json",
+          "fileSha256": "de78a3d41948b302d9a25515e243b8e91267b7e52e9df64a2e0b320382da3381"
+        },
+        {
+          "schemaVersion": "openadam.direct-contract-selection.v0.1",
+          "file": "schemas/contract-selection.schema.json",
+          "fileSha256": "a76c32d8a4abce25f0cad42b0c6cdc65a76f33353867445fdcf96daf6f62c4d4"
+        }
+      ],
+      "protocols": [
+        "openadam.capability-jsonl.v0.1",
+        "openadam.procedure-jsonl.v0.2"
+      ]
+    }
+  ]
+}

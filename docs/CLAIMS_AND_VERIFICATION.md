@@ -22,13 +22,17 @@ The label itself grants no authority.
 The public core supports these bounded claims:
 
 - Capability and Procedure document families have closed schemas, reference
-  validators, executable negative tests, and current provider-seeded catalogs.
+  validators, executable negative tests, complete Profile-to-manifest digests,
+  explicit conformance claim boundaries, and current provider-seeded catalogs.
 - Direct Execution Runtime has a source implementation for validated read-only
   Capability, Procedure, and MCP calls, including a local current-user service.
 - Current maintainer-local pilots exercise the architecture on one macOS
   machine through real provider boundaries.
 - The repositories are independently licensed, tested, security-scanned, and
   releasable from source.
+- A machine-readable draft contract set coordinates the current document
+  families and schema bytes. It is explicitly not an immutable release until
+  repository revisions and a release tag are separately authorized and bound.
 
 ## Claims not made
 

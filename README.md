@@ -41,6 +41,11 @@ presentation. A harness supplies durable routing and product-specific guidance.
 The semantic contracts define portable operation or method meaning. The host
 runtime validates current bindings, reuses eligible provider sessions, applies
 limits, and executes the already-closed call without another model decision.
+When a provider carrier advertises many typed operations, a capable host may
+project the already-selected operation into one smaller contract for validation
+and execution. The projection preserves operation identity, version, input,
+output, and error meaning; it is not an opaque universal invoke tool and does
+not claim to rewrite an unmodified Agent shell's initial tool catalog.
 
 ## Public core
 
@@ -57,6 +62,13 @@ limits, and executes the already-closed call without another model decision.
 Provider products remain independent repositories. They keep their own richer
 product contracts, source, releases, transports, limits, and human surfaces.
 This repository contains no provider source and is not a monorepo.
+
+[Agent Host Suite](https://github.com/tetracoralla/agent-host-suite) is the
+optional local distribution and management product for current hosts. It binds
+compatible releases, installs through supported shell extension points, runs
+the private Direct Runtime service, and offers update, rollback, doctor,
+uninstall, and opt-in observability. It is an adopter of the architecture, not
+a required standards runtime.
 
 See [Repository map](docs/REPOSITORIES.md) for the current public set.
 
@@ -88,6 +100,8 @@ See [Repository map](docs/REPOSITORIES.md) for the current public set.
 6. Run the [public Math Anchor demo](https://github.com/tetracoralla/direct-execution-runtime/blob/main/docs/PUBLIC_DEMO.md)
    for a real zero-model execution-stage walkthrough.
 7. Read [Related work](docs/PRIOR_ART.md) for current overlap and non-overlap.
+8. Read [Compatibility contract set](docs/COMPATIBILITY.md) before treating one
+   combination of repository revisions as a release coordinate.
 
 ## Current status
 

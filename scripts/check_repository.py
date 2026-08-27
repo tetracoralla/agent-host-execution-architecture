@@ -3,6 +3,8 @@
 
 from __future__ import annotations
 
+import hashlib
+import json
 import re
 import sys
 from pathlib import Path
@@ -20,9 +22,11 @@ REQUIRED = {
     "README.md",
     "SECURITY.md",
     "THIRD_PARTY_NOTICES.md",
+    "compatibility/experimental-contract-set.v0.2.json",
     "docs/ADOPTION.md",
     "docs/ARCHITECTURE.md",
     "docs/CLAIMS_AND_VERIFICATION.md",
+    "docs/COMPATIBILITY.md",
     "docs/INTEROPERABILITY.md",
     "docs/LAYERS.md",
     "docs/PRIOR_ART.md",
@@ -95,6 +99,60 @@ def main() -> int:
             raise RuntimeError(f"public core repository link is absent: {repository}")
     if "Copyright 2026 openAdam" not in documents[ROOT / "NOTICE"]:
         raise RuntimeError("NOTICE must use the public openAdam identity")
+
+    contract_set_path = ROOT / "compatibility/experimental-contract-set.v0.2.json"
+    contract_set = json.loads(contract_set_path.read_text(encoding="utf-8"))
+    if contract_set.get("schemaVersion") != "openadam.architecture-contract-set.v0.1":
+        raise RuntimeError("compatibility contract set has the wrong schemaVersion")
+    publication = contract_set.get("publication")
+    if not isinstance(publication, dict) or publication.get("status") not in {"draft-unbound", "published-bound"}:
+        raise RuntimeError("compatibility contract set has an invalid publication status")
+    repositories = contract_set.get("repositories")
+    if not isinstance(repositories, list) or len(repositories) != 3:
+        raise RuntimeError("compatibility contract set must name the three public executable repositories")
+    repository_ids: set[str] = set()
+    schema_versions: set[str] = set()
+    for repository in repositories:
+        repository_id = repository.get("id")
+        if not isinstance(repository_id, str) or repository_id in repository_ids:
+            raise RuntimeError("compatibility contract set has a missing or duplicate repository id")
+        repository_ids.add(repository_id)
+        if repository.get("url") not in REQUIRED_REPOSITORIES:
+            raise RuntimeError(f"compatibility contract set has an unknown repository URL: {repository_id}")
+        for document in repository.get("documents", []):
+            schema_version = document.get("schemaVersion")
+            digest = document.get("fileSha256")
+            if not isinstance(schema_version, str) or schema_version in schema_versions:
+                raise RuntimeError("compatibility contract set has a missing or duplicate schema version")
+            if not isinstance(digest, str) or re.fullmatch(r"[a-f0-9]{64}", digest) is None:
+                raise RuntimeError(f"compatibility contract set has an invalid digest: {schema_version}")
+            sibling_file = ROOT.parent / repository_id / document.get("file", "")
+            if sibling_file.is_file():
+                observed_digest = hashlib.sha256(sibling_file.read_bytes()).hexdigest()
+                if observed_digest != digest:
+                    raise RuntimeError(f"compatibility contract set digest drift: {schema_version}")
+            schema_versions.add(schema_version)
+    required_schema_versions = {
+        "openadam.capability-profile.v0.3",
+        "openadam.provider-manifest.v0.3",
+        "openadam.conformance-suite.v0.2",
+        "openadam.capability-jsonl-envelope.v0.1",
+        "openadam.procedure-profile.v0.5",
+        "openadam.procedure-implementation-manifest.v0.5",
+        "openadam.procedure-conformance-suite.v0.4",
+        "openadam.procedure-composition-suite.v0.2",
+        "openadam.direct-provider-config.v0.2",
+        "openadam.direct-work-order.v0.1",
+        "openadam.direct-contract-selection.v0.1",
+    }
+    if schema_versions != required_schema_versions:
+        raise RuntimeError("compatibility contract set does not exactly name the current document family")
+    if publication["status"] == "published-bound":
+        if re.fullmatch(r"v[0-9]+\.[0-9]+\.[0-9]+", publication.get("releaseTag", "")) is None:
+            raise RuntimeError("published compatibility contract set must name a release tag")
+        for repository in repositories:
+            if re.fullmatch(r"[a-f0-9]{40}", repository.get("revision", "")) is None:
+                raise RuntimeError("published compatibility contract set must pin every repository revision")
 
     for path, text in documents.items():
         if path.suffix == ".md":

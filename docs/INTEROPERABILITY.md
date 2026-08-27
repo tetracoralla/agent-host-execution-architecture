@@ -21,8 +21,9 @@ transport, discovery, orchestration, deployment, and product choices.
 | Surface | Current status |
 | --- | --- |
 | MCP provider execution | Implemented in Direct Execution Runtime through live stdio schema acquisition, pinned provider identity, persistent sessions, and bounded execution. |
-| Capability JSONL execution | Implemented for current Provider Manifest bindings. |
-| Procedure JSONL execution | Implemented for current Procedure Profile and implementation-manifest bindings. |
+| Selected MCP operation projection | Implemented in Direct Execution Runtime for explicitly declared discriminated tools; only the selected branch is compiled and raw wide-tool bypass is rejected. This is post-selection host behavior, not dynamic mutation of an Agent shell catalog. |
+| Capability JSONL execution | Implemented for Capability Profile v0.3 plus Provider Manifest v0.3 complete semantic bindings. |
+| Procedure JSONL execution | Implemented for closed-world Procedure Profile v0.5 plus implementation-manifest v0.5, including conditional completion validation. |
 | A2A or OASF discovery export | Mapping guidance only; no packaged adapter is currently claimed. |
 | OpenAI Agents SDK, Google ADK, Microsoft Agent Framework, or NVIDIA Agent Intelligence Toolkit binding | Architectural fit only; no packaged framework adapter is currently claimed. |
 
@@ -40,6 +41,14 @@ Capability adapter may project those schemas into a provider-neutral contract,
 but matching JSON shapes do not by themselves establish matching units,
 ordering, ambiguity behavior, side effects, or stable errors. Conformance must
 run through the real provider boundary.
+
+Direct provider-native MCP execution additionally requires a closed operator
+allowlist and safe live annotations. Those inputs can veto a call but do not
+promote a raw MCP tool into a Capability or verify its external effects.
+For an explicitly declared multi-operation tool, the host may additionally
+project one selected branch and validate native batch items against their own
+branches. Batch is used only when the provider declares native support; the
+host does not silently coalesce calls or change ordering and failure semantics.
 
 ### A2A and OASF
 

@@ -28,7 +28,11 @@ language. Keep intent interpretation outside the Procedure.
 Use the host runtime when structured calls are repeated, provider startup or
 session cost matters, or callers need bounded concurrency, cancellation, and
 correlation. Pin current bindings and validate the selected operation schema
-before execution. Do not expose a generic opaque invoke tool to the model.
+before execution. If a provider-native carrier groups many discriminated
+operations in one schema, project and cache only the already-selected branch;
+preserve its exact identity and semantics, and keep the original wide carrier
+unavailable through that projected route. Do not expose a generic opaque invoke
+tool to the model.
 
 ## 5. Teach each harness the cheapest correct route
 
