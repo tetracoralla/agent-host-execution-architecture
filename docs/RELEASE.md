@@ -3,7 +3,10 @@
 This repository publishes architecture documentation. It does not publish a
 package, binary, hosted service, provider catalog, or Agent shell integration.
 
-1. Run `python3 scripts/check_repository.py`.
+1. From the complete adjacent multi-repository workspace, run
+   `python3 scripts/check_repository.py --require-sibling-contracts`. The
+   repository-local mode reports unavailable sibling checks but is not the
+   release digest check.
 2. Verify the compatibility contract set. It must remain `draft-unbound` until
    exact reviewed revisions exist in every executable repository.
 3. Verify every linked public core repository and provider example from its

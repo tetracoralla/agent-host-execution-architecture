@@ -5,11 +5,16 @@ repository's own prose as proof that the executable layers conform.
 
 ## Development regression
 
-Run `python3 scripts/check_repository.py`. Reacquire every public repository URL
-and verify that responsibility statements still match its current README and
-product model. Check internal links, legal identity, workflow pinning, and the
-absence of personal paths, generated reports, local configuration, and copied
-provider source.
+Run `python3 scripts/check_repository.py` for repository-local invariants. Its
+result must explicitly say whether adjacent contract digests were verified or
+unavailable. In the complete `tools-dev` workspace, run
+`python3 scripts/check_repository.py --require-sibling-contracts`; this strict
+mode fails when any named adjacent contract file is absent instead of silently
+skipping drift detection. Reacquire every public repository URL and verify that
+responsibility statements still match its current README and product model.
+Check internal links, legal identity, workflow pinning, and the absence of
+personal paths, generated reports, local configuration, and copied provider
+source.
 
 ## Architecture integrity
 

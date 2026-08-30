@@ -25,7 +25,7 @@ transport, discovery, orchestration, deployment, and product choices.
 | Capability JSONL execution | Implemented for Capability Profile v0.3 plus Provider Manifest v0.3 complete semantic bindings. |
 | Procedure JSONL execution | Implemented for closed-world Procedure Profile v0.5 plus implementation-manifest v0.5, including conditional completion validation. |
 | A2A or OASF discovery export | Mapping guidance only; no packaged adapter is currently claimed. |
-| OpenAI Agents SDK, Google ADK, Microsoft Agent Framework, or NVIDIA Agent Intelligence Toolkit binding | Architectural fit only; no packaged framework adapter is currently claimed. |
+| OpenAI Agents SDK, Google ADK, Microsoft Agent Framework, or NVIDIA NeMo Agent Toolkit binding | Architectural fit only; no packaged framework adapter is currently claimed. |
 
 The [public Math Anchor demo](https://github.com/tetracoralla/direct-execution-runtime/blob/main/docs/PUBLIC_DEMO.md)
 is the shortest current executable integration. It uses a real MCP provider and
@@ -60,12 +60,12 @@ availability, and cost remain current provider or host facts.
 
 ### Agent and workflow frameworks
 
-OpenAI Programmatic Tool Calling, Google ADK workflows, Microsoft Agent
-Framework workflows, NVIDIA Agent Intelligence Toolkit workflows, Temporal,
-and similar systems may own orchestration. They can call a provider directly,
-implement a Procedure, or hand already-selected typed work to Direct Execution
-Runtime. Their workflow or function identity does not replace the portable
-Capability or Procedure identity.
+OpenAI Tool Search and Programmatic Tool Calling, Google ADK workflows,
+Microsoft Agent Framework workflows, NVIDIA NeMo Agent Toolkit workflows,
+Temporal, and similar systems may own discovery or orchestration. They can call
+a provider directly, implement a Procedure, or hand already-selected typed work
+to Direct Execution Runtime. Their tool, workflow, or function identity does
+not replace the portable Capability or Procedure identity.
 
 ### Small models
 

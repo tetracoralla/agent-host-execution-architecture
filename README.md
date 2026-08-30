@@ -83,7 +83,7 @@ See [Repository map](docs/REPOSITORIES.md) for the current public set.
 - not a claim that every Agent will route correctly or that every provider is
   substitutable;
 - not an authorization layer for side effects. The current Direct Execution
-  Runtime v0.1 admits only read-only, non-destructive, idempotent, closed-world
+  Runtime admits only read-only, non-destructive, idempotent, closed-world
   operations.
 
 ## Start here

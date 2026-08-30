@@ -7,6 +7,7 @@ repositories.
 Run:
 
 ```sh
+python3 -m unittest discover -s tests
 python3 scripts/check_repository.py
 ```
 
