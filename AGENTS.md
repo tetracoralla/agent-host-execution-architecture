@@ -3,6 +3,10 @@
 Read `docs/PRODUCT_MODEL.md`, `docs/ARCHITECTURE.md`, and
 `docs/REVIEW_CONTRACT.md` before changing this repository.
 
+A review reconstructs the current repository map and executable consumers,
+then applies the contract as minimum coverage plus an independent discovery
+route. The contract is not a completion script.
+
 This repository owns the public architectural narrative and repository map. It
 does not own provider source, Capability or Procedure schemas, Direct Execution
 Runtime code, Agent shell code, deployment, or a generic workflow language.
