@@ -23,6 +23,11 @@ The architecture connects four independently useful objects:
 3. an independent provider product implementing those semantics;
 4. a host execution layer for already selected and structured work.
 
+An optional distribution suite may install and manage concrete host adapters,
+providers, and the direct runtime for a supported device. It consumes the
+architecture but does not become the semantic standard or a prerequisite for
+independent implementations.
+
 Agent shells and harnesses are clients of the architecture. MCP, CLI, HTTP,
 libraries, and local services are carriers. None of them becomes the semantic
 identity of a Capability or Procedure.
@@ -42,7 +47,8 @@ Runtime, or the concrete provider repository that can test them.
 
 ## Current release boundary
 
-The initial public release is source and documentation under Apache-2.0. It
-does not publish a package, binary, tag, hosted service, registry, or Agent
-shell integration. The linked core repositories have independent histories,
-security settings, CI, releases, and acceptance boundaries.
+This repository's initial public release is source and documentation under
+Apache-2.0. It does not itself publish a package, binary, hosted service,
+registry, or Agent shell integration. Linked core, provider, and optional Suite
+repositories have independent histories, security settings, CI, releases, and
+acceptance boundaries.

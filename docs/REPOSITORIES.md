@@ -9,6 +9,16 @@
 | [procedure-contracts](https://github.com/tetracoralla/procedure-contracts) | Procedure Profiles, implementation manifests and conformance tooling | Independent standards repository |
 | [direct-execution-runtime](https://github.com/tetracoralla/direct-execution-runtime) | Bounded host execution for already-closed structured calls | Independent runtime repository |
 
+## Optional distribution and management
+
+| Repository | Responsibility | Source relationship |
+| --- | --- | --- |
+| [agent-host-suite](https://github.com/tetracoralla/agent-host-suite) | Version-bound installation, supported host adapters, Direct Runtime service management, doctor/update/rollback/uninstall, and opt-in observability | Independent adopter; not required by the standards |
+
+The Suite currently targets macOS with Codex and Claude adapters. Other Agent
+shells may consume the same Provider, Capability, Procedure, and Direct Runtime
+contracts through their own supported extension points without installing it.
+
 ## Public provider examples
 
 | Product | Role in current public examples |

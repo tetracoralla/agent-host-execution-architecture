@@ -29,10 +29,40 @@ A Capability owns one independently reusable operation meaning. It defines the
 canonical input, output, caller-visible behavior, and stable errors without
 depending on a particular transport or provider command.
 
+A current provider binds the complete resolved Capability Profile with one
+digest. Operation annotations are checked projections of Profile semantics,
+not an independent source of safety truth. Schema equality alone is therefore
+insufficient when behavior, stable errors, lifecycle, or effects change.
+
 A Procedure owns a settled repeated method. It references versioned Capability
-requirements, their order and dependencies, and one falsifiable completion
-condition. It does not ask the Agent to reconstruct the stage graph on every
-invocation.
+requirements, their order and dependencies, machine-evaluable optional-stage
+conditions, and falsifiable completion branches. The implementation binds the
+complete resolved Procedure Profile. It does not ask the Agent to reconstruct
+the stage graph on every invocation.
+
+## Evolution discipline
+
+The architecture freezes identities, not implementation progress. Four
+versions evolve independently:
+
+- document format version describes how a contract file is encoded;
+- Capability or Procedure semantic version describes caller-visible meaning;
+- provider version describes one product implementation and release;
+- adapter or host protocol version describes one carrier envelope.
+
+Once a Capability or Procedure `id@version` is cataloged or consumed, its
+schemas, stable errors, effect meaning, causal graph, and completion semantics
+are immutable. A reviewer can and should identify a better design, but a
+meaning-changing correction becomes a new semantic version with explicit
+provider, Procedure, and host migration. Changing only a schema-format string
+is not such a migration.
+
+Provider algorithms and the host runtime may continue to improve connection
+reuse, scheduling, concurrency, cancellation, recovery, resource bounds, and
+performance under the same semantic version only when the complete selected
+contract remains behaviorally conserved. This gives reviewers room to optimize
+the system without letting a review silently redefine what existing consumers
+already pinned.
 
 Not every tool needs either standard. A provider-native typed operation remains
 valid when no portable Capability or settled Procedure has been demonstrated.
@@ -46,10 +76,24 @@ portable result; it must not mutate an existing Capability version when the
 product grows.
 
 The host execution layer reacquires current binding facts before execution. It
-checks the selected identity, version, schema or schema digest, operation
-annotations, and input. It then owns admission, session/process reuse,
+checks the selected identity, version, complete Profile digest, schema digests,
+semantics-derived annotations, conditional graph/completion where applicable,
+and input. It then owns admission, session/process reuse,
 deadlines, cancellation, recovery, correlation, partial failure, and complete
 response bounds. Provider domain results and errors remain provider-owned.
+
+If one live carrier tool contains several explicitly discriminated operations,
+the host may project the selected branch, prune unreachable local schema
+definitions, compile only that branch, and cache it under the current provider
+binding. It must keep the tool name, operation identity, input/output contract,
+stable errors, provider version, and contract digest visible. Raw access to the
+wide projected tool is then rejected at that host boundary. This optimization
+happens after selection; it does not dynamically shrink the initial catalog of
+an Agent shell that has no such extension point.
+
+Provider-native MCP remains a valid fallback when no portable Profile exists.
+In that route, an operator allowlist and live annotations are host policy inputs,
+not Capability conformance or proof that the provider cannot cause effects.
 
 ## Agent re-entry
 
