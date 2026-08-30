@@ -1,7 +1,16 @@
 # Review contract
 
 Review current linked repositories and public GitHub state; do not accept this
-repository's own prose as proof that the executable layers conform.
+repository's own prose as proof that executable layers conform. This contract
+records durable architecture boundaries and minimum coverage, not a fixed
+reasoning script or completion runway.
+
+Before applying the named checks, reconstruct the current repository map,
+layer ownership, compatibility document family, executable consumers, and
+public claims. Perform and report at least one independent discovery route
+derived from that model rather than from this file, test names, prior findings,
+or the changed-file list. Completing every item below cannot by itself end the
+review.
 
 ## Development regression
 
