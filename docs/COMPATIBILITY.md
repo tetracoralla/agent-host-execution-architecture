@@ -36,6 +36,11 @@ bytes, including its two exact compatible error forms: `{code,message}` and
 `{code,message,retryable}`. The Capability Profile remains authoritative for
 retryability.
 
+It also coordinates `openadam.differential-suite.v0.1`. That document format
+allows two distinct Provider Manifests to be compared over one bounded corpus;
+including its schema bytes does not promote any Profile to L3 or certify a
+test-only witness as a released substitute.
+
 ## Current semantic migrations
 
 These coordinates describe the repaired local pilot set; they are not a

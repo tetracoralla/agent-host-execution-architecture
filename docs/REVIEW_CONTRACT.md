@@ -29,8 +29,9 @@ source.
 
 Check that:
 
-1. Agent runtime, shell, harness, semantic contracts, provider product, direct
-   host runtime, host authority, and assessment plane remain distinct.
+1. Agent runtime, shell, harness, semantic contracts, Provider Product,
+   Provider Instance, direct host runtime, host authority, and assessment plane
+   remain distinct.
 2. Capability owns reusable typed operation meaning; Procedure owns settled
    method and completion; neither owns provider deployment or Agent planning.
 3. Direct execution begins only after typed selection and current binding/input
@@ -57,6 +58,16 @@ Check that:
    `published-bound` requires exact repository revisions and a release tag.
 11. Agent Host Suite remains an optional distribution adopter, not a required
     standards runtime, provider source repository, or patched Agent shell.
+12. Local program, system/API, model-backed inference and Agent-runner Provider
+    forms preserve one typed outer contract without moving endpoints,
+    credentials, model prompts, budgets or health into Capability semantics.
+    The model-backed form must not inherit tools, loops, memory, termination or
+    independent-oracle requirements unless its implementation or quality claim
+    actually needs them. A local bridge is not reported as proof of no network
+    egress.
+13. Skill refinement keeps source observation/build checks separate from the
+    Agent-authored semantic assessment, and does not claim arbitrary automatic
+    compilation or silently upload private Skills.
 
 ## Executable lanes
 
@@ -71,6 +82,10 @@ their owners:
   pilots in Direct Execution Runtime;
 - installed Agent routing and human product flows in the actual Agent shell and
   provider products.
+- Skill mining/refinement, isolated Host import, drift and rollback in their
+  current development owners when that optional flow is claimed;
+- remote bridge transport, endpoint/credential availability and privacy
+  authorization in their separate owning lanes.
 
 ## Reporting
 

@@ -28,6 +28,7 @@ REQUIRED = {
     "docs/ARCHITECTURE.md",
     "docs/CLAIMS_AND_VERIFICATION.md",
     "docs/COMPATIBILITY.md",
+    "docs/PROVIDER_FORMS.md",
     "docs/INTEROPERABILITY.md",
     "docs/LAYERS.md",
     "docs/PRIOR_ART.md",
@@ -35,6 +36,7 @@ REQUIRED = {
     "docs/RELEASE.md",
     "docs/REPOSITORIES.md",
     "docs/REVIEW_CONTRACT.md",
+    "docs/SKILL_TO_CAPABILITY.md",
 }
 REQUIRED_REPOSITORIES = {
     "https://github.com/tetracoralla/capability-contracts",
@@ -49,6 +51,7 @@ REQUIRED_CONTRACT_REPOSITORIES = {
             "openadam.capability-profile.v0.3": "schemas/capability-profile.schema.v0.3.json",
             "openadam.provider-manifest.v0.3": "schemas/provider-manifest.schema.v0.3.json",
             "openadam.conformance-suite.v0.2": "schemas/conformance-suite.schema.v0.2.json",
+            "openadam.differential-suite.v0.1": "schemas/differential-suite.schema.v0.1.json",
             "openadam.capability-jsonl-envelope.v0.1": "schemas/capability-jsonl-envelope.schema.v0.1.json",
         },
     },

@@ -28,6 +28,11 @@
           "fileSha256": "9114b2119b8e5f5d858708d594c1c6c7fdcb45a6a0e21ac1ff19573621c2ba7c"
         },
         {
+          "schemaVersion": "openadam.differential-suite.v0.1",
+          "file": "schemas/differential-suite.schema.v0.1.json",
+          "fileSha256": "70f6ecaf7ea89f3ff764b2669cd88428fe3ab0ad091f2ebe86eec826a92a9814"
+        },
+        {
           "schemaVersion": "openadam.capability-jsonl-envelope.v0.1",
           "file": "schemas/capability-jsonl-envelope.schema.v0.1.json",
           "fileSha256": "1319859f00e766eb60fb0fc9daef2a7deb92f32376569253b5a70bd9b3bcdcb1"

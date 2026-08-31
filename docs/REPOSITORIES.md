@@ -36,6 +36,15 @@ Other openAdam tools may adopt parts of the architecture without becoming part
 of this public core. Development-only pilots are not silently presented as
 public dependencies.
 
+## Current development extensions
+
+The maintainer workspace also contains independently owned, not-yet-public
+development repositories for Skill mining, Skill refinement, and the bounded
+HTTP Capability bridge. They exercise optional ecosystem-production and remote
+Provider paths, but they are not part of the public repository set or a release
+coordinate until the owner separately authorizes publication and compatibility
+binding.
+
 ## Adjacent planes
 
 Observation, evaluation, and context-surface tools are adjacent to the core.

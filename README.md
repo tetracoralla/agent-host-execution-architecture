@@ -61,7 +61,10 @@ not claim to rewrite an unmodified Agent shell's initial tool catalog.
 
 Provider products remain independent repositories. They keep their own richer
 product contracts, source, releases, transports, limits, and human surfaces.
-This repository contains no provider source and is not a monorepo.
+A Provider Instance binds one such product to an installed root or remote
+endpoint, account/credential reference, permissions, and current health. The
+Host manages Instance facts; the Capability does not. This repository contains
+no provider source and is not a monorepo.
 
 [Agent Host Suite](https://github.com/tetracoralla/agent-host-suite) is the
 optional local distribution and management product for current hosts. It binds
@@ -102,6 +105,11 @@ See [Repository map](docs/REPOSITORIES.md) for the current public set.
 7. Read [Related work](docs/PRIOR_ART.md) for current overlap and non-overlap.
 8. Read [Compatibility contract set](docs/COMPATIBILITY.md) before treating one
    combination of repository revisions as a release coordinate.
+9. Read [Provider forms](docs/PROVIDER_FORMS.md) for local code, system/API, and
+   Agent-backed implementations without confusing Product, Instance, Tool, or
+   Skill.
+10. Read [Skill-to-Capability refinement](docs/SKILL_TO_CAPABILITY.md) for the
+    optional private-Skill production path.
 
 ## Current status
 
