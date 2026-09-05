@@ -90,10 +90,15 @@ privacy or reliability stays unknown; a zero-model Host stage is not proof of
 zero task cost. A latency comparison with a prewritten witness does not measure
 the effort of having a model write and debug that code.
 
-The immediate next investment after this slice should be a small real-task
-comparison using an existing consumer and an existing authorized Agent route.
-Use its result to retain, simplify or retire optional integration work. There
-is no standing authorization here for model spend, scheduled agents, external
+The product purpose is to move concrete repeated work from Agent reasoning into
+reliable tools. Verify that an existing consumer can discover the operation,
+supply its inputs, and use its result without manually repeating the algorithm.
+Correctness, failure recovery, and calling overhead can be checked directly.
+A further model comparison is optional work for a specific unresolved decision,
+not a default next step or a prerequisite for useful delivery. Do not fabricate
+a no-tool run or infer reasoning savings from deterministic conformance. Net
+reasoning and token savings remain unknown until actually observed. There is
+no standing authorization here for model spend, scheduled agents, external
 publication, installation or product removal.
 
 ## Follow transport evolution without duplicating it
