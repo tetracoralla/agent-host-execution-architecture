@@ -78,6 +78,10 @@ a required standards runtime.
 
 See [Repository map](docs/REPOSITORIES.md) for the current public set.
 
+See [Development direction](docs/DEVELOPMENT_DIRECTION.md) for the current
+value hypothesis, executable substitution experiment, and decisions that
+require real consumer evidence before further expansion.
+
 ## What this architecture is not
 
 - not a replacement or fork of Codex, Claude Code, or another Agent shell;

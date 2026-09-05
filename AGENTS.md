@@ -21,8 +21,10 @@ runtime code, Agent shell code, deployment, or a generic workflow language.
   measurements, generated reports, or Agent traces here.
 - Treat observations, measurements, deterministic checks, assessments, gates,
   and proofs as different concepts. Do not promote one into another by naming.
-- Do not claim uniqueness, universal effectiveness, cross-provider
-  substitution, production capacity, or compatibility with every Agent shell.
+- Scope claims to current observations: name the tested implementations and
+  inputs for substitution, workload for capacity, and carriers for compatibility.
+  Current limits may be revised when new evidence supports a broader claim;
+  bounded checks do not establish uniqueness or universal effectiveness.
 - Add a normative machine contract only in its owning executable repository,
   with a current consumer and regression coverage.
 - Use Apache-2.0 and the public author identity `openAdam`.

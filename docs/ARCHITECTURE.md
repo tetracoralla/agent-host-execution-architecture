@@ -57,6 +57,13 @@ meaning-changing correction becomes a new semantic version with explicit
 provider, Procedure, and host migration. Changing only a schema-format string
 is not such a migration.
 
+Unpublished, unbound proposals outside the catalog may be revised or removed.
+Published contracts can have unknown consumers and do not regain draft status
+because no local binding is visible. Compatibility protects caller promises;
+it does not freeze the layer model, repository count, or current product scope.
+Those choices can change when a real task warrants it, preserving existing
+contracts or supplying an explicit migration where callers are affected.
+
 Provider algorithms and the host runtime may continue to improve connection
 reuse, scheduling, concurrency, cancellation, recovery, resource bounds, and
 performance under the same semantic version only when the complete selected

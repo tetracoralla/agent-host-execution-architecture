@@ -43,8 +43,8 @@ The public release does not establish:
 
 - compatibility with every Agent shell, operating system, device, or provider;
 - that natural-language routing will select the intended tool in every session;
-- cross-provider substitution from one originating Provider Product plus a
-  test-only independent implementation witness;
+- a deployable, supported replacement or equivalence beyond tested inputs from
+  a bounded comparison with a test-only independent implementation witness;
 - production remote endpoint, credential, data-egress, model-backed inference
   Provider or Agent-runner Provider
   readiness from a loopback HTTP carrier pilot;
