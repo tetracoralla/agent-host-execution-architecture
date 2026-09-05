@@ -1,7 +1,7 @@
 {
   "schemaVersion": "openadam.architecture-contract-set.v0.1",
   "id": "org.openadam.agent-host-execution.experimental",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "lifecycle": "experimental",
   "publication": {
     "status": "draft-unbound",
@@ -30,7 +30,7 @@
         {
           "schemaVersion": "openadam.differential-suite.v0.1",
           "file": "schemas/differential-suite.schema.v0.1.json",
-          "fileSha256": "70f6ecaf7ea89f3ff764b2669cd88428fe3ab0ad091f2ebe86eec826a92a9814"
+          "fileSha256": "0eff37e65bab804d65e39214a9463448d59be9fa9acc3f621b5b84c79bff0d7b"
         },
         {
           "schemaVersion": "openadam.capability-jsonl-envelope.v0.1",
@@ -38,7 +38,9 @@
           "fileSha256": "1319859f00e766eb60fb0fc9daef2a7deb92f32376569253b5a70bd9b3bcdcb1"
         }
       ],
-      "protocols": ["openadam.capability-jsonl.v0.1"]
+      "protocols": [
+        "openadam.capability-jsonl.v0.1"
+      ]
     },
     {
       "id": "procedure-contracts",
@@ -65,25 +67,27 @@
           "fileSha256": "995c433c24ea47a479005e3bf95c4b25579868525a385f2eeaddd5af3304c7b6"
         }
       ],
-      "protocols": ["openadam.procedure-jsonl.v0.2"]
+      "protocols": [
+        "openadam.procedure-jsonl.v0.2"
+      ]
     },
     {
-      "id": "direct-execution-runtime",
-      "url": "https://github.com/tetracoralla/direct-execution-runtime",
+      "id": "agent-host-suite",
+      "url": "https://github.com/tetracoralla/agent-host-suite",
       "documents": [
         {
           "schemaVersion": "openadam.direct-provider-config.v0.2",
-          "file": "schemas/provider-config.schema.json",
-          "fileSha256": "4c40e4c898fc6822510a9b693bbda4f324352a3bd69a93fcb0a8c680d663a67b"
+          "file": "packages/direct-execution-runtime/schemas/provider-config.schema.json",
+          "fileSha256": "ab692c3a431989feb99c5df794552941cbcbde09431876d991845dcf26c2d6c6"
         },
         {
           "schemaVersion": "openadam.direct-work-order.v0.1",
-          "file": "schemas/work-order.schema.json",
+          "file": "packages/direct-execution-runtime/schemas/work-order.schema.json",
           "fileSha256": "de78a3d41948b302d9a25515e243b8e91267b7e52e9df64a2e0b320382da3381"
         },
         {
           "schemaVersion": "openadam.direct-contract-selection.v0.1",
-          "file": "schemas/contract-selection.schema.json",
+          "file": "packages/direct-execution-runtime/schemas/contract-selection.schema.json",
           "fileSha256": "a76c32d8a4abce25f0cad42b0c6cdc65a76f33353867445fdcf96daf6f62c4d4"
         }
       ],

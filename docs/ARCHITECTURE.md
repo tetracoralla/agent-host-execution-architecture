@@ -57,6 +57,13 @@ meaning-changing correction becomes a new semantic version with explicit
 provider, Procedure, and host migration. Changing only a schema-format string
 is not such a migration.
 
+Unpublished, unbound proposals outside the catalog may be revised or removed.
+Published contracts can have unknown consumers and do not regain draft status
+because no local binding is visible. Compatibility protects caller promises;
+it does not freeze the layer model, repository count, or current product scope.
+Those choices can change when a real task warrants it, preserving existing
+contracts or supplying an explicit migration where callers are affected.
+
 Provider algorithms and the host runtime may continue to improve connection
 reuse, scheduling, concurrency, cancellation, recovery, resource bounds, and
 performance under the same semantic version only when the complete selected
@@ -81,6 +88,36 @@ semantics-derived annotations, conditional graph/completion where applicable,
 and input. It then owns admission, session/process reuse,
 deadlines, cancellation, recovery, correlation, partial failure, and complete
 response bounds. Provider domain results and errors remain provider-owned.
+
+The Provider Product and Provider Instance are different objects. The Product
+is versioned implementation code or a service release. The Instance fixes the
+actual local root or endpoint, account and credential reference, grants,
+installed version, and current health for one Host. A Provider Manifest binds
+the Product to Capability meaning; it does not claim that any Instance is
+installed, authorized, or reachable.
+
+Four implementation forms use the same outer contract:
+
+- a local-program provider packages code, a library, or a standards
+  database behind its typed adapter;
+- a system/API provider keeps the semantic implementation behind a fixed
+  endpoint while a local bridge preserves the typed adapter, limits,
+  correlation, and Host-owned transport failures;
+- a model-backed inference provider maps one typed input into bounded model
+  context and maps one model response into its typed result; it does not gain
+  tools, memory, a planning loop, or autonomous stopping by default;
+- an Agent-runner provider packages a subordinate model, harness, allowed
+  tools, run policy, turn/tool budgets, cancellation, termination, and result
+  adapter only when the implementation actually performs an Agent-style run.
+
+Neither model-backed form is a Skill that asks the calling Agent to perform the
+reasoning again. The caller sees one typed Provider result. The Procedure or
+caller decides what context reaches a model-backed inference node; the node is
+not required to expand that context into an autonomous workflow. Model choice,
+prompt, harness, and hosting are Product or Instance facts unless they change
+the portable meaning. Credentials never belong in the Capability Profile or
+Skill. The Host or external credential system owns their configured reference
+and availability.
 
 If one live carrier tool contains several explicitly discriminated operations,
 the host may project the selected branch, prune unreachable local schema
@@ -107,6 +144,32 @@ Execution returns to an Agent only when at least one of these is true:
 
 A transport failure, provider error, or large catalog does not by itself
 justify asking a model to invent an alternative result.
+
+## Skill refinement flow
+
+A Skill may contain routing knowledge, unresolved judgment, settled method,
+repeated shell/API mechanics, and deterministic algorithms in one document.
+The optional refinement flow separates those concerns without pretending that
+natural language has one mechanically recoverable implementation:
+
+```text
+explicit owned Skill corpus
+  -> bounded read-only source observation
+  -> user-selected Agent authors a semantic proposal and plan
+  -> deterministic plan validation
+  -> Provider code + optional Procedure + thinner Skill
+  -> sealed package verification
+  -> Host preview, import, activation, drift detection and rollback
+```
+
+Only the source observation, plan/schema checks, build, package verification,
+Host admission, and runtime calls are deterministic. The semantic
+classification remains an assessment by the user's Agent and must preserve
+unresolved choices. The architecture does not select that Agent, certify its
+quality, or require its proposal to preserve the original task effect. Private
+input stays local unless the owner separately authorizes an external model or
+service. See `SKILL_TO_CAPABILITY.md` for the current implemented boundary and
+non-claims.
 
 ## Observation and assessment
 

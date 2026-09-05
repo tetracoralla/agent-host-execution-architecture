@@ -3,6 +3,18 @@
 Adopt the architecture from a real repeated task, not from a desire to fill
 every layer.
 
+## Optional: mine an existing Skill corpus
+
+When the repeated task already lives in a private Skill or runbook, begin with
+a bounded read-only observation. Let the user's chosen Agent author the
+semantic proposal, then use deterministic tools only to validate its closed
+shape and lower explicitly supported contracts. Keep ambiguity and judgment in
+a thin Skill. The platform does not supply or grade the authoring Agent and
+does not promise extraction quality or effect preservation. The current
+development refinement route is described in `SKILL_TO_CAPABILITY.md`. Do not
+upload a private corpus or turn an Agent assessment into generated code without
+the owner's chosen privacy boundary.
+
 ## 1. Keep the provider independently useful
 
 Start with one deterministic or bounded provider core and explicit typed
@@ -15,6 +27,10 @@ Define a Capability Profile when multiple callers need the same operation
 meaning independent of transport. Project the provider's richer result into a
 canonical result and run conformance through the real adapter. One provider is
 enough for an experimental provider-seeded Profile, not for substitution.
+
+Configure a Provider Instance separately from the Profile: exact product
+version, local root or endpoint, account/credential reference, grants and
+health. These are Host facts and must not be promoted into portable semantics.
 
 ## 3. Add a Procedure only when the method is settled
 

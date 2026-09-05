@@ -24,10 +24,12 @@ transport, discovery, orchestration, deployment, and product choices.
 | Selected MCP operation projection | Implemented in Direct Execution Runtime for explicitly declared discriminated tools; only the selected branch is compiled and raw wide-tool bypass is rejected. This is post-selection host behavior, not dynamic mutation of an Agent shell catalog. |
 | Capability JSONL execution | Implemented for Capability Profile v0.3 plus Provider Manifest v0.3 complete semantic bindings. |
 | Procedure JSONL execution | Implemented for closed-world Procedure Profile v0.5 plus implementation-manifest v0.5, including conditional completion validation. |
+| Remote HTTPS Capability Provider | Development implementation and Direct Runtime loopback pilot through a local bounded JSONL bridge; no production endpoint, public package, credential or installed-Host claim. |
+| Private Skill refinement | Development cross-repository vertical from bounded local source observation through generated Provider/thin Skill, sealed Host import, isolated Codex discovery, call, drift and rollback; semantic planning remains Agent-authored. |
 | A2A or OASF discovery export | Mapping guidance only; no packaged adapter is currently claimed. |
 | OpenAI Agents SDK, Google ADK, Microsoft Agent Framework, or NVIDIA NeMo Agent Toolkit binding | Architectural fit only; no packaged framework adapter is currently claimed. |
 
-The [public Math Anchor demo](https://github.com/tetracoralla/direct-execution-runtime/blob/main/docs/PUBLIC_DEMO.md)
+The [public Math Anchor demo](https://github.com/tetracoralla/agent-host-suite/blob/main/packages/direct-execution-runtime/docs/PUBLIC_DEMO.md)
 is the shortest current executable integration. It uses a real MCP provider and
 keeps provider errors distinct from host validation errors without involving a
 model in the execution stage.

@@ -28,6 +28,9 @@ The public core supports these bounded claims:
   Capability, Procedure, and MCP calls, including a local current-user service.
 - Current maintainer-local pilots exercise the architecture on one macOS
   machine through real provider boundaries.
+- Host source contains a loopback HTTP Provider bridge pilot that runs without
+  model calls. Private-Skill refinement remains a separate development pilot;
+  it is not part of the public core.
 - The repositories are independently licensed, tested, security-scanned, and
   releasable from source.
 - A machine-readable draft contract set coordinates the current document
@@ -40,7 +43,14 @@ The public release does not establish:
 
 - compatibility with every Agent shell, operating system, device, or provider;
 - that natural-language routing will select the intended tool in every session;
-- cross-provider substitution for a Profile with only one provider;
+- a deployable, supported replacement or equivalence beyond tested inputs from
+  a bounded comparison with a test-only independent implementation witness;
+- production remote endpoint, credential, data-egress, model-backed inference
+  Provider or Agent-runner Provider
+  readiness from a loopback HTTP carrier pilot;
+- automatic semantic compilation of arbitrary private Skills;
+- extraction quality, a uniquely correct Skill partition, or default effect
+  preservation from schema-valid Agent-authored plans;
 - that a Procedure is the best professional method for every organization;
 - production capacity, an SLA, or universal token/cost savings;
 - side-effect authorization, credential safety, or operating-system sandboxing;
@@ -54,6 +64,25 @@ Report cold Agent, cold direct, warm direct, and provider-native batch as
 separate routes. State the machine, workload, revision, provider version,
 sample size, concurrency, result bytes, model calls, and unobserved costs. Do
 not turn one provider's timing into a universal savings percentage.
+
+## Evaluation adequacy
+
+An Agent evaluation measures the named Agent, harness, prompt knowledge,
+budget, attempts, tasks and graders. It is neither a model-independent quality
+score nor an estimate of what a stronger Agent or an expert human could attain
+with substantially more time. Treat evaluator-model judgments as assessments,
+not mechanical truth, and keep the evaluator separate from the result producer
+when practical.
+
+Use direct runtime checks for deterministic behavior and calling overhead. If
+a product decision requires a model comparison, authorize and run the actual
+tasks before interpreting their results; simulated alternatives and prewritten
+implementations do not measure Agent reasoning savings. Use stronger or repeated
+Agents to explore a practical capability frontier only when that decision needs it. Use
+external outcomes, domain experts or sustained dogfood for claims whose
+validity depends on real organizational context, long horizons or tacit human
+practice. A report must name the evaluated level and the stronger levels still
+unobserved; no generated record can certify its own adequacy.
 
 ## Freshness
 
