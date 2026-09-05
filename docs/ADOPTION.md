@@ -6,11 +6,14 @@ every layer.
 ## Optional: mine an existing Skill corpus
 
 When the repeated task already lives in a private Skill or runbook, begin with
-a bounded read-only observation and an Agent-authored semantic plan. Compile
-only deterministic or settled fragments; keep ambiguity and judgment in a thin
-Skill. The current development refinement route is described in
-`SKILL_TO_CAPABILITY.md`. Do not upload a private corpus or turn an Agent
-assessment into generated code without the owner's chosen privacy boundary.
+a bounded read-only observation. Let the user's chosen Agent author the
+semantic proposal, then use deterministic tools only to validate its closed
+shape and lower explicitly supported contracts. Keep ambiguity and judgment in
+a thin Skill. The platform does not supply or grade the authoring Agent and
+does not promise extraction quality or effect preservation. The current
+development refinement route is described in `SKILL_TO_CAPABILITY.md`. Do not
+upload a private corpus or turn an Agent assessment into generated code without
+the owner's chosen privacy boundary.
 
 ## 1. Keep the provider independently useful
 

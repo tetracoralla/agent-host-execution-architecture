@@ -23,7 +23,7 @@ REQUIRED = {
     "README.md",
     "SECURITY.md",
     "THIRD_PARTY_NOTICES.md",
-    "compatibility/experimental-contract-set.v0.2.json",
+    "compatibility/experimental-contract-set.v0.3.json",
     "docs/ADOPTION.md",
     "docs/ARCHITECTURE.md",
     "docs/CLAIMS_AND_VERIFICATION.md",
@@ -41,7 +41,7 @@ REQUIRED = {
 REQUIRED_REPOSITORIES = {
     "https://github.com/tetracoralla/capability-contracts",
     "https://github.com/tetracoralla/procedure-contracts",
-    "https://github.com/tetracoralla/direct-execution-runtime",
+    "https://github.com/tetracoralla/agent-host-suite",
 }
 REQUIRED_CONTRACT_REPOSITORIES = {
     "capability-contracts": {
@@ -71,16 +71,16 @@ REQUIRED_CONTRACT_REPOSITORIES = {
             ),
         },
     },
-    "direct-execution-runtime": {
-        "url": "https://github.com/tetracoralla/direct-execution-runtime",
+    "agent-host-suite": {
+        "url": "https://github.com/tetracoralla/agent-host-suite",
         "protocols": [
             "openadam.capability-jsonl.v0.1",
             "openadam.procedure-jsonl.v0.2",
         ],
         "documents": {
-            "openadam.direct-provider-config.v0.2": "schemas/provider-config.schema.json",
-            "openadam.direct-work-order.v0.1": "schemas/work-order.schema.json",
-            "openadam.direct-contract-selection.v0.1": "schemas/contract-selection.schema.json",
+            "openadam.direct-provider-config.v0.2": "packages/direct-execution-runtime/schemas/provider-config.schema.json",
+            "openadam.direct-work-order.v0.1": "packages/direct-execution-runtime/schemas/work-order.schema.json",
+            "openadam.direct-contract-selection.v0.1": "packages/direct-execution-runtime/schemas/contract-selection.schema.json",
         },
     },
 }
@@ -155,7 +155,7 @@ def main(*, require_sibling_contracts: bool = False) -> int:
     if "Copyright 2026 openAdam" not in documents[ROOT / "NOTICE"]:
         raise RuntimeError("NOTICE must use the public openAdam identity")
 
-    contract_set_path = ROOT / "compatibility/experimental-contract-set.v0.2.json"
+    contract_set_path = ROOT / "compatibility/experimental-contract-set.v0.3.json"
     contract_set = read_json(contract_set_path)
     if not isinstance(contract_set, dict):
         raise RuntimeError("compatibility contract set must be a JSON object")

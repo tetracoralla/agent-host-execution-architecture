@@ -89,23 +89,28 @@ installed version, and current health for one Host. A Provider Manifest binds
 the Product to Capability meaning; it does not claim that any Instance is
 installed, authorized, or reachable.
 
-Three implementation forms use the same outer contract:
+Four implementation forms use the same outer contract:
 
-- a local deterministic provider packages code, a library, or a standards
+- a local-program provider packages code, a library, or a standards
   database behind its typed adapter;
 - a system/API provider keeps the semantic implementation behind a fixed
   endpoint while a local bridge preserves the typed adapter, limits,
   correlation, and Host-owned transport failures;
-- an Agent-backed provider packages its model, harness, tools, run policy, and
-  budget inside the Provider Product and declares stochasticity, provenance,
-  uncertainty, and stable failure meaning where callers need them.
+- a model-backed inference provider maps one typed input into bounded model
+  context and maps one model response into its typed result; it does not gain
+  tools, memory, a planning loop, or autonomous stopping by default;
+- an Agent-runner provider packages a subordinate model, harness, allowed
+  tools, run policy, turn/tool budgets, cancellation, termination, and result
+  adapter only when the implementation actually performs an Agent-style run.
 
-An Agent-backed provider is not a Skill that asks the calling Agent to perform
-the reasoning again. The caller sees one typed Provider result; model choice,
-prompt, and hosting are implementation/binding facts unless they change the
-portable meaning. Credentials never belong in the Capability Profile or Skill.
-The Host or external credential system owns their configured reference and
-availability.
+Neither model-backed form is a Skill that asks the calling Agent to perform the
+reasoning again. The caller sees one typed Provider result. The Procedure or
+caller decides what context reaches a model-backed inference node; the node is
+not required to expand that context into an autonomous workflow. Model choice,
+prompt, harness, and hosting are Product or Instance facts unless they change
+the portable meaning. Credentials never belong in the Capability Profile or
+Skill. The Host or external credential system owns their configured reference
+and availability.
 
 If one live carrier tool contains several explicitly discriminated operations,
 the host may project the selected branch, prune unreachable local schema
@@ -143,7 +148,7 @@ natural language has one mechanically recoverable implementation:
 ```text
 explicit owned Skill corpus
   -> bounded read-only source observation
-  -> Agent-authored semantic classification and plan
+  -> user-selected Agent authors a semantic proposal and plan
   -> deterministic plan validation
   -> Provider code + optional Procedure + thinner Skill
   -> sealed package verification
@@ -152,10 +157,12 @@ explicit owned Skill corpus
 
 Only the source observation, plan/schema checks, build, package verification,
 Host admission, and runtime calls are deterministic. The semantic
-classification remains an Agent assessment and must preserve unresolved
-choices. Private input stays local unless the owner separately authorizes an
-external model or service. See `SKILL_TO_CAPABILITY.md` for the current
-implemented boundary and non-claims.
+classification remains an assessment by the user's Agent and must preserve
+unresolved choices. The architecture does not select that Agent, certify its
+quality, or require its proposal to preserve the original task effect. Private
+input stays local unless the owner separately authorizes an external model or
+service. See `SKILL_TO_CAPABILITY.md` for the current implemented boundary and
+non-claims.
 
 ## Observation and assessment
 

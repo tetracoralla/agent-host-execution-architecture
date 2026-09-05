@@ -71,6 +71,20 @@ changes caller use, limits and stable failure meaning when applicable. A
 product needs an independent oracle only when it claims measured quality,
 equivalence or substitution—not merely to exist as a model-backed Provider.
 
+The current local development reference is `skill-partition-advisor`: one
+optional provider-native typed node that assesses one caller-supplied Skill
+fragment with one bounded Codex model run. Its provider-specific Instance fixes
+the model/runtime, external `codex-account` credential reference, OpenAI
+destination, admitted data classes, and per-call limits. A secret-free private
+Instance pack has been previewed, imported and called through isolated Agent
+Host state. It has no Capability Profile, no Skill-refinement dependency, and
+makes no quality, equivalence, substitution, public-release, installed-user,
+or adoption claim.
+
+The reference remains deliberately concrete rather than a generic “ask a
+model/Agent” operation. Model-backed evaluation is required for the quality
+claim being made; it is not a universal admission gate.
+
 ## Agent-runner Provider
 
 Use the heavier form only when the implementation actually performs an
@@ -86,14 +100,8 @@ valid when unresolved judgment belongs with the main Agent. A package that
 embeds an API key is invalid Instance design; a real Host or credential system
 owns the secret reference.
 
-There is no current live model-backed reference Provider in the public core.
-Creating one requires a concrete repeated operation, privacy and spending
-authority, a typed context/result boundary, and honest variability/limit
-semantics. Tool loops and product-owned termination policy are required only
-for an Agent runner. Model-backed evaluation is required for the quality claim
-being made; it is not a universal admission gate. The architecture intentionally
-does not invent a generic “ask a model/Agent” Capability merely to demonstrate
-either form.
+Tool loops and product-owned termination policy are required only for an Agent
+runner; they are not implied by the presence of a model.
 
 ## Host responsibility
 

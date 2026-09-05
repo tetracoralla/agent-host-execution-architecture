@@ -27,7 +27,7 @@ caches or patched application internals.
 Direct Execution Runtime is a second runtime with a narrower responsibility. It
 does not converse or reason. It runs only after a host, Agent, automation, or
 person has selected a typed operation. Updating an Agent shell does not replace
-this independent repository or its provider contracts. Its operation-level
+its versioned Agent Host package or its provider contracts. Its operation-level
 projection can reduce post-selection validation and execution surface, but it
 cannot alter the initial catalog of a shell that does not expose a dynamic tool
 registration hook.

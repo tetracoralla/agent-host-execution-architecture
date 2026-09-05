@@ -8,10 +8,15 @@ then applies the contract as minimum coverage plus an independent discovery
 route. The contract is not a completion script.
 
 This repository owns the public architectural narrative and repository map. It
-does not own provider source, Capability or Procedure schemas, Direct Execution
-Runtime code, Agent shell code, deployment, or a generic workflow language.
+does not own external provider source, Capability or Procedure schemas, Host
+runtime code, Agent shell code, deployment, or a generic workflow language.
 
-- Keep every linked implementation in its independent repository.
+- Preserve typed package, protocol, version, and failure boundaries. Do not
+  require a separate repository when a Host-owned implementation has no
+  verified independent consumer; it may live as an internal Agent Host package.
+- Keep independently useful external provider products separately releasable.
+  A Plugin, conformance suite, or provider identity alone does not establish
+  that product boundary.
 - Do not copy tool source or publish local configuration, credentials, paths,
   measurements, generated reports, or Agent traces here.
 - Treat observations, measurements, deterministic checks, assessments, gates,

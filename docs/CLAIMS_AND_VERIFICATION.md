@@ -49,6 +49,8 @@ The public release does not establish:
   Provider or Agent-runner Provider
   readiness from a loopback HTTP carrier pilot;
 - automatic semantic compilation of arbitrary private Skills;
+- extraction quality, a uniquely correct Skill partition, or default effect
+  preservation from schema-valid Agent-authored plans;
 - that a Procedure is the best professional method for every organization;
 - production capacity, an SLA, or universal token/cost savings;
 - side-effect authorization, credential safety, or operating-system sandboxing;

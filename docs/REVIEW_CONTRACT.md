@@ -53,7 +53,7 @@ Check that:
 9. A cataloged or consumed Capability/Procedure `id@version` is not rewritten
    in place. Meaning-changing review findings create a new semantic version;
    implementation-only optimization demonstrates behavioral conservation.
-10. `compatibility/experimental-contract-set.v0.2.json` exactly names the
+10. `compatibility/experimental-contract-set.v0.3.json` exactly names the
    current document family. `draft-unbound` is never described as immutable;
    `published-bound` requires exact repository revisions and a release tag.
 11. Agent Host Suite remains an optional distribution adopter, not a required
@@ -66,8 +66,10 @@ Check that:
     actually needs them. A local bridge is not reported as proof of no network
     egress.
 13. Skill refinement keeps source observation/build checks separate from the
-    Agent-authored semantic assessment, and does not claim arbitrary automatic
-    compilation or silently upload private Skills.
+    user's chosen Agent and its semantic assessment. The architecture does not
+    supply or grade that Agent, claim extraction quality, require effect
+    preservation by default, claim arbitrary automatic compilation, or
+    silently upload private Skills.
 
 ## Executable lanes
 

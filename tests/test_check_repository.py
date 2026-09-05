@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import hashlib
 import json
 import shutil
 import subprocess
@@ -48,7 +49,7 @@ class RepositoryCheckerTests(unittest.TestCase):
     def test_tampered_sibling_document_fails_digest_verification(self) -> None:
         isolated_root = self.isolated_copy()
         contract_set = json.loads(
-            (isolated_root / "compatibility/experimental-contract-set.v0.2.json").read_text(encoding="utf-8")
+            (isolated_root / "compatibility/experimental-contract-set.v0.3.json").read_text(encoding="utf-8")
         )
         repository = contract_set["repositories"][0]
         sibling_file = isolated_root.parent / repository["id"] / repository["documents"][0]["file"]
@@ -58,6 +59,32 @@ class RepositoryCheckerTests(unittest.TestCase):
         result = self.run_checker(isolated_root)
         self.assertEqual(result.returncode, 1, result.stdout)
         self.assertIn("digest drift", result.stderr)
+
+    def test_legacy_runtime_copy_cannot_mask_current_owner_drift_or_absence(self) -> None:
+        isolated_root = self.isolated_copy()
+        contract_path = isolated_root / "compatibility/experimental-contract-set.v0.3.json"
+        contract = json.loads(contract_path.read_text())
+        for repository in contract["repositories"]:
+            for document in repository["documents"]:
+                content = json.dumps({"fixture": document["schemaVersion"]}).encode()
+                target = isolated_root.parent / repository["id"] / document["file"]
+                target.parent.mkdir(parents=True, exist_ok=True)
+                target.write_bytes(content)
+                document["fileSha256"] = hashlib.sha256(content).hexdigest()
+        contract_path.write_text(json.dumps(contract, indent=2) + "\n")
+        current = isolated_root.parent / "agent-host-suite/packages/direct-execution-runtime"
+        shutil.copytree(current, isolated_root.parent / "direct-execution-runtime")
+        valid = self.run_checker(isolated_root, "--require-sibling-contracts")
+        self.assertEqual(valid.returncode, 0, valid.stderr)
+        target = current / "schemas/provider-config.schema.json"
+        target.write_bytes(target.read_bytes() + b"\n")
+        drift = self.run_checker(isolated_root, "--require-sibling-contracts")
+        self.assertEqual(drift.returncode, 1)
+        self.assertIn("digest drift", drift.stderr)
+        target.unlink()
+        missing = self.run_checker(isolated_root, "--require-sibling-contracts")
+        self.assertEqual(missing.returncode, 1)
+        self.assertIn("required sibling contract files", missing.stderr)
 
     def test_personal_path_in_public_text_fails(self) -> None:
         isolated_root = self.isolated_copy()
@@ -74,7 +101,7 @@ class RepositoryCheckerTests(unittest.TestCase):
 
     def test_personal_path_in_contract_set_fails(self) -> None:
         isolated_root = self.isolated_copy()
-        contract_set_path = isolated_root / "compatibility/experimental-contract-set.v0.2.json"
+        contract_set_path = isolated_root / "compatibility/experimental-contract-set.v0.3.json"
         contract_set = json.loads(contract_set_path.read_text(encoding="utf-8"))
         contract_set["publication"]["description"] = "/".join(
             ("", "Users", "openadam", "Development", "private")
@@ -87,7 +114,7 @@ class RepositoryCheckerTests(unittest.TestCase):
 
     def test_document_mapping_drift_fails_without_siblings(self) -> None:
         isolated_root = self.isolated_copy()
-        contract_set_path = isolated_root / "compatibility/experimental-contract-set.v0.2.json"
+        contract_set_path = isolated_root / "compatibility/experimental-contract-set.v0.3.json"
         contract_set = json.loads(contract_set_path.read_text(encoding="utf-8"))
         contract_set["repositories"][0]["documents"][0]["file"] = "schemas/wrong.json"
         contract_set_path.write_text(json.dumps(contract_set, indent=2) + "\n", encoding="utf-8")
@@ -98,7 +125,7 @@ class RepositoryCheckerTests(unittest.TestCase):
 
     def test_protocol_drift_fails(self) -> None:
         isolated_root = self.isolated_copy()
-        contract_set_path = isolated_root / "compatibility/experimental-contract-set.v0.2.json"
+        contract_set_path = isolated_root / "compatibility/experimental-contract-set.v0.3.json"
         contract_set = json.loads(contract_set_path.read_text(encoding="utf-8"))
         contract_set["repositories"][0]["protocols"] = ["openadam.capability-jsonl.v9"]
         contract_set_path.write_text(json.dumps(contract_set, indent=2) + "\n", encoding="utf-8")
@@ -109,7 +136,7 @@ class RepositoryCheckerTests(unittest.TestCase):
 
     def test_invalid_contract_set_json_fails_without_traceback(self) -> None:
         isolated_root = self.isolated_copy()
-        contract_set_path = isolated_root / "compatibility/experimental-contract-set.v0.2.json"
+        contract_set_path = isolated_root / "compatibility/experimental-contract-set.v0.3.json"
         contract_set_path.write_text("{\n", encoding="utf-8")
 
         result = self.run_checker(isolated_root)
@@ -119,7 +146,7 @@ class RepositoryCheckerTests(unittest.TestCase):
 
     def test_draft_contract_set_rejects_release_anchors(self) -> None:
         isolated_root = self.isolated_copy()
-        contract_set_path = isolated_root / "compatibility/experimental-contract-set.v0.2.json"
+        contract_set_path = isolated_root / "compatibility/experimental-contract-set.v0.3.json"
         contract_set = json.loads(contract_set_path.read_text(encoding="utf-8"))
         contract_set["repositories"][0]["revision"] = "a" * 40
         contract_set_path.write_text(json.dumps(contract_set, indent=2) + "\n", encoding="utf-8")
@@ -130,7 +157,7 @@ class RepositoryCheckerTests(unittest.TestCase):
 
     def test_published_bound_without_release_anchor_fails(self) -> None:
         isolated_root = self.isolated_copy()
-        contract_set_path = isolated_root / "compatibility/experimental-contract-set.v0.2.json"
+        contract_set_path = isolated_root / "compatibility/experimental-contract-set.v0.3.json"
         contract_set = json.loads(contract_set_path.read_text(encoding="utf-8"))
         contract_set["publication"] = {"status": "published-bound"}
         contract_set_path.write_text(json.dumps(contract_set, indent=2) + "\n", encoding="utf-8")

@@ -33,12 +33,20 @@ Agent shells and harnesses are clients of the architecture. MCP, CLI, HTTP,
 libraries, and local services are carriers. None of them becomes the semantic
 identity of a Capability or Procedure.
 
-A Skill remains guidance rather than executable semantic authority. A private
-Skill may be mined and partially compiled: deterministic fragments become
-Provider code, a settled multi-stage method may become a Procedure, and the
-remaining ambiguity/routing knowledge stays in a thinner Skill. That refinery
-flow is an optional ecosystem-production path, not a prerequisite for using
-the architecture and not an automatic natural-language compiler.
+A Skill remains guidance rather than executable semantic authority. In the
+optional refinement flow, the user's chosen Agent reads the authorized Skill
+material and authors a semantic proposal. Deterministic tools can validate
+that proposal's structure and source bindings, lower one explicitly supported
+contract into Provider code, and leave unresolved ambiguity or routing
+knowledge in a thinner Skill. A settled multi-stage method may separately
+become a Procedure.
+
+The architecture neither supplies nor grades that authoring Agent. It does not
+promise extraction quality, a uniquely correct partition, or effect
+preservation unless the owner separately requests and defines a bounded
+assessment. The flow is an optional ecosystem-production path, not a
+prerequisite for using the architecture or an automatic natural-language
+compiler.
 
 ## Repository boundary
 

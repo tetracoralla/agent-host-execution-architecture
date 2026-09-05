@@ -2,9 +2,14 @@
 
 The architecture publishes one machine-readable compatibility bill of
 materials at
-`compatibility/experimental-contract-set.v0.2.json`. It names the document and
+`compatibility/experimental-contract-set.v0.3.json`. It names the document and
 protocol versions intended to work together and records SHA-256 bytes for each
 schema source.
+
+The v0.3 set resolves Direct Runtime schemas from their current owner,
+`agent-host-suite/packages/direct-execution-runtime`, and refreshes the
+Differential Suite schema digest. The former v0.2 draft remains historical;
+it is not validated against today's working trees.
 
 The Direct Runtime document family includes the explicit contract-selection
 schema used for post-selection Capability, Procedure, or MCP-operation
