@@ -28,9 +28,9 @@ The public core supports these bounded claims:
   Capability, Procedure, and MCP calls, including a local current-user service.
 - Current maintainer-local pilots exercise the architecture on one macOS
   machine through real provider boundaries.
-- Current development pilots exercise one private-Skill refinement chain and
-  one loopback HTTP Provider bridge without model calls; they are not yet part
-  of the public repository/release set.
+- Host source contains a loopback HTTP Provider bridge pilot that runs without
+  model calls. Private-Skill refinement remains a separate development pilot;
+  it is not part of the public core.
 - The repositories are independently licensed, tested, security-scanned, and
   releasable from source.
 - A machine-readable draft contract set coordinates the current document
@@ -74,9 +74,11 @@ with substantially more time. Treat evaluator-model judgments as assessments,
 not mechanical truth, and keep the evaluator separate from the result producer
 when practical.
 
-Use a cheap Agent comparison to catch routing regressions, avoidable tool cost,
-and obvious task failures. Use stronger or repeated Agents to explore a
-practical capability frontier only when the product decision needs it. Use
+Use direct runtime checks for deterministic behavior and calling overhead. If
+a product decision requires a model comparison, authorize and run the actual
+tasks before interpreting their results; simulated alternatives and prewritten
+implementations do not measure Agent reasoning savings. Use stronger or repeated
+Agents to explore a practical capability frontier only when that decision needs it. Use
 external outcomes, domain experts or sustained dogfood for claims whose
 validity depends on real organizational context, long horizons or tacit human
 practice. A report must name the evaluated level and the stronger levels still

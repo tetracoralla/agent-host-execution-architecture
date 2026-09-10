@@ -14,10 +14,13 @@
 | Repository | Responsibility | Source relationship |
 | --- | --- | --- |
 | [agent-host-suite](https://github.com/tetracoralla/agent-host-suite) | Version-bound installation, Host-owned Direct Runtime source and service management, supported host adapters, doctor/update/rollback/uninstall, and opt-in observability | Independent adopter; not required by the standards |
+| [agent-tool-development-kit](https://github.com/tetracoralla/agent-tool-development-kit) | External provider authoring, checks, sealed packaging and isolated Host probes | Independent developer product; one CLI and a thin Skill |
 
-The Suite currently targets macOS with Codex and Claude adapters. Other Agent
-shells may consume the same Provider, Capability, Procedure, and Direct Runtime
-contracts through their own supported extension points without installing it.
+The Suite has ZCode, Codex and Claude adapters, a macOS Manager, and a Windows
+distribution carrier. Source and carrier checks do not establish a public
+compatibility installer or clean-device acceptance. Other Agent shells may
+consume the same Provider, Capability, Procedure, and Direct Runtime contracts
+through their own supported extension points without installing the Suite.
 
 ## Public provider examples
 
@@ -39,12 +42,10 @@ public dependencies.
 
 ## Current development extensions
 
-The maintainer workspace also contains not-yet-public development modules for
-Skill mining, Skill refinement, and the bounded HTTP Capability bridge. They
-exercise optional ecosystem-production and remote Provider paths, but neither a
-typed boundary nor a pilot makes them independent products. Their long-term
-source ownership is Agent Host or private labs unless real external consumption
-establishes otherwise.
+The bounded HTTP Capability bridge, Observer and Context Surface Analyzer are
+Host-owned packages under `agent-host-suite/packages/`. Private labs contain
+Skill mining and refinement experiments outside this public core. A typed
+boundary or pilot does not itself make either group independent products.
 
 ## Adjacent planes
 
